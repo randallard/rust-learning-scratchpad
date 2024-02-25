@@ -13,7 +13,7 @@ impl Default for TemplateApp {
     fn default() -> Self {
         Self {
             // Example stuff:
-            label: "Hello World!".to_owned(),
+            label: "hello world!".to_owned(),
             value: 2.7,
         }
     }
@@ -45,6 +45,7 @@ impl eframe::App for TemplateApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         // Put your widgets into a `SidePanel`, `TopBottomPanel`, `CentralPanel`, `Window` or `Area`.
         // For inspiration and more examples, go to https://emilk.github.io/egui
+        // egui::SidePanel
 
         egui::TopBottomPanel::top("top_panel").show(ctx, |ui| {
             // The top panel is often a good place for a menu bar:
@@ -65,9 +66,17 @@ impl eframe::App for TemplateApp {
             });
         });
 
+        egui::Window::new("My Window").show(ctx, |ui| {
+            ui.label("Hello World!");
+         });
+
+        egui::SidePanel::left("my_left_panel").show(ctx, |ui| {
+            ui.label("Hello World!");
+         });
+
         egui::CentralPanel::default().show(ctx, |ui| {
             // The central panel the region left after adding TopPanel's and SidePanel's
-            ui.heading("rust learning scratchpad");
+            ui.heading("Rust Learning Scratchpad");
 
             ui.horizontal(|ui| {
                 ui.label("Write something: ");

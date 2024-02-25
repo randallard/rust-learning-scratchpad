@@ -18,7 +18,7 @@ fn main() -> eframe::Result<()> {
         ..Default::default()
     };
     eframe::run_native(
-        "rust learning scratchpad",
+        "Rust Learning Scratchpad",
         native_options,
         Box::new(|cc| Box::new(rust_learning_scratchpad::TemplateApp::new(cc))),
     )
